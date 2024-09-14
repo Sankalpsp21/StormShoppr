@@ -1,6 +1,5 @@
 "use client";
 
-import { SignInOrComposer } from "./SignInOrComposer";
 import { useState, useEffect } from 'react'
 
 interface Product {

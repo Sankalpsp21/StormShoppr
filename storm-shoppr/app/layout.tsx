@@ -23,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ConvexClientProvider>
           <Nav/>
+          
             {children}
         </ConvexClientProvider>
       </body>

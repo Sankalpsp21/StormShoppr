@@ -16,8 +16,7 @@ export default defineSchema({
     name: v.string(),
     username: v.string(),
     pictureUrl: v.string(),
-    latitude: v.optional(v.number()),
-    longitude: v.optional(v.number()),
+    city: v.optional(v.string()),
     products: v.optional(v.array(v.id("products"))),
     autoOrder: v.optional(v.boolean()),
   })
