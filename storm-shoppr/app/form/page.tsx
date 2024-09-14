@@ -2,18 +2,29 @@
 
 import { useState, useEffect } from 'react'
 
+// ask the user for their address first then ask for products then direct to dashboard map page. The products page is the same one if the user wants to update their preferences later.
 interface Product {
   id: number
   name: string
   price: number
   image: string
-  description: string
 }
-
+// products from rite aid
 const products: Product[] = [
-  { id: 1, name: "T-Shirt", price: 19.99, image: "/placeholder.svg?height=100&width=100" , description: "hi"},
-  { id: 2, name: "Jeans", price: 49.99, image: "/placeholder.svg?height=100&width=100" , description: "hi"},
-  { id: 3, name: "Sneakers", price: 79.99, image: "/placeholder.svg?height=100&width=100", description: "hi" },
+
+  { id: 1, name: "Crystal Geyser Natural Alpine Spring Water Bottle (1 gal)", price: 1.99, image: "/images/water.png"},
+  { id: 2, name: "Campbell's Canned Soup (Chicken Noodle)", price: 3.50, image: "/images/campbellsoup.jpeg"},
+  { id: 3, name: "Jif Peanut Butter", price: 2.89, image: "/images/jif.webp"},
+  { id: 4, name: "Kraft Original Macaroni & Cheese Cups Easy Microwavable Dinner (4 ct)", price: 5.17, image: "/images/jif.webp"},
+  { id: 5, name: "Nature Valley Crunchy Granola Bars, Oats 'n Honey, 12 Bars (6 Pouches)", price: 4.19, image: "/images/bars.jpg"},
+  { id: 6, name: "Duracell Coppertop AA Batteries (20 ct)", price: 17.76, image: "/images/aabattery.jpg"},
+  { id: 7, name: "Energizer MAX D Batteries (8-Pack)", price: 14.52, image: "/images/dbattery.png"},
+  { id: 8, name: "Purell Advanced Refreshing Gel Hand Sanitizer (4-pack)", price: 34.99, image: "/images/handsanditizer.jpeg"},
+  { id: 9, name: "Scott 1-Ply Toilet Paper 1000 Sheets per Roll (18 ct)", price: 24.59, image: "/images/toiletpaper.png"},
+  { id: 10, name: "Johnson & Johnson All-Purpose First Aid Kit", price: 18.36, image: "/images/firstaidkit.webp"},
+  { id: 11, name: "Neosporin Antibiotic Ointment", price: 6.39, image: "/images/neosporin.webp"},
+  { id: 12, name: "Tampax Pearl Light Absorbency Unscented Tampons (36 ct)", price: 14.49, image: "/images/tampax.jpeg"},
+  
 ]
 
 export default function Home() {
@@ -91,14 +102,14 @@ export default function Home() {
                           onClick={() => updateCart(product.id, false)}
                           className="bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition-colors"
                         >
-                          <div>-</div>
+                          <div className="mx-2">-</div>
                         </button>
                         <span className="mx-2 w-8 text-center">{cart[product.id] || 0}</span>
                         <button
                           onClick={() => updateCart(product.id, true)}
                           className="bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition-colors"
                         >
-                          <div>+</div>
+                          <div className="mx-2">+</div>
                         </button>
                       </div>
                     </div>
@@ -264,7 +275,7 @@ export default function Home() {
                   type="submit"
                   className="mt-8 w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
                 >
-                  Place Order
+                  Save Order
                 </button>
               </form>
             </div>
@@ -291,7 +302,7 @@ export default function Home() {
                 </div>
                 <div className="mt-6 flex items-center justify-center text-sm text-gray-500">
                  
-                  <span>Save Order</span>
+                  <span>Secure Checkout</span>
                 </div>
               </div>
             </div>
