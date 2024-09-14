@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-  @apply mx-auto w-[600px];
-}
 
 ul {
   @apply border-l border-r border-t;
