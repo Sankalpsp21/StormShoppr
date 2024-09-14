@@ -1,9 +1,10 @@
 import { SignInOrComposer } from "./SignInOrComposer";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
     <main>
-      Splash
+      <HeroSection/>
     </main>
   );
 }
