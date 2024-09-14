@@ -30,8 +30,7 @@ export const store = mutation({
       tokenIdentifier: identity.tokenIdentifier,
       name: identity.name!,
       username: identity.nickname!,
-      pictureUrl: identity.pictureUrl!,
-      numPosts: 0,
+      pictureUrl: identity.pictureUrl!
     });
   },
 });

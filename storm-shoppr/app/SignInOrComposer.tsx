@@ -2,12 +2,13 @@
 
 import { SignInButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
-import { Composer } from "./Composer";
 
 export function SignInOrComposer() {
   const { isLoading, isAuthenticated } = useConvexAuth();
   return isAuthenticated ? (
-    <Composer />
+    <p>
+      You are signed in!
+    </p>
   ) : (
     <div className="composer">
       <div>{isLoading ? <button disabled>...</button> : <SignInButton />}</div>
