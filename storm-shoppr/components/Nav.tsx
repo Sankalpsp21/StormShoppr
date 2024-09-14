@@ -16,10 +16,10 @@ const Nav = () => {
         {/* If the user is not authenticated, and is not loading, show the sign in and sign up buttons */}
         {!isAuthenticated && !isLoading && (
           <>
-            <SignInButton mode="modal" afterSignInUrl="/dashboard">
+            <SignInButton mode="modal" afterSignInUrl="/form">
               Sign In
             </SignInButton>
-            <SignUpButton mode="modal" afterSignUpUrl="/dashboard">
+            <SignUpButton mode="modal" afterSignUpUrl="/form">
               Sign Up
             </SignUpButton>
           </>

@@ -13,7 +13,7 @@ export default function HeroSection() {
             Find your favorite products at the best prices, all in one place.
           </p>
           <div className="flex justify-center">
-            <SignInButton mode="modal" afterSignInUrl="/dashboard">
+            <SignInButton mode="modal" afterSignInUrl="/form">
               <button className="bg-white text-blue-500 font-bold py-3 px-8 rounded-full hover:bg-gray-100">
                 Sign In
               </button>

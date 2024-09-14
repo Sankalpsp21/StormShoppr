@@ -4,6 +4,7 @@ import { QueryCtx, mutation, query } from "./_generated/server";
 export const store = mutation({
   args: {},
   handler: async (ctx) => {
+    console.log("storeUser");
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) {
       throw new Error("Called storeUser without authentication present");
