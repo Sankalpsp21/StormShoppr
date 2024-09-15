@@ -1,42 +1,67 @@
 "use client";
 import { useConvexAuth } from "convex/react";
-
 import { SignInButton, SignUpButton, UserButton } from "@clerk/clerk-react";
 
+
 const Nav = () => {
-  const { isAuthenticated, isLoading } = useConvexAuth();
+ const { isAuthenticated, isLoading } = useConvexAuth();
 
-  function SignInAndSignUpButtons() {
-    return (
-      <div className="flex gap-4">
-        {/* If the user is not authenticated, and is loading (i.e. we don't know if they are authenticated or not), show a loading spinner */}
-        {isLoading && (
-          <p>Loading</p>
-        )}
-        {/* If the user is not authenticated, and is not loading, show the sign in and sign up buttons */}
-        {!isAuthenticated && !isLoading && (
-          <>
-            <SignInButton mode="modal" afterSignInUrl="/form">
-              Sign In
-            </SignInButton>
-            <SignUpButton mode="modal" afterSignUpUrl="/form">
-              Sign Up
-            </SignUpButton>
-          </>
-        )}
-        {/* If the user is authenticated, show the user buttons */}
-        {isAuthenticated && !isLoading && <UserButton afterSignOutUrl="/" />}
-      </div>
-    );
-  }
 
-  return (
-      <div className="flex justify-end items-center p-4 bg-slate-400">
-        <div className="flex gap-4 items-center">
-          <SignInAndSignUpButtons />
-        </div>
-      </div>
-  );
+ function SignInAndSignUpButtons() {
+   return (
+     <div className="flex gap-4">
+       {/* Loading Spinner */}
+       {isLoading && <p>Loading...</p>}
+      
+       {/* If not authenticated and not loading, show Sign In and Sign Up buttons */}
+       {!isAuthenticated && !isLoading && (
+         <>
+           <SignInButton mode="modal" afterSignInUrl="/form">
+             <button className="bg-white text-gray-500 font-bold py-2 px-6 rounded-full hover:bg-gray-100">
+               Sign In
+             </button>
+           </SignInButton>
+           <SignUpButton mode="modal" afterSignUpUrl="/form">
+             <button className="bg-white text-gray-500 font-bold py-2 px-6 rounded-full hover:bg-gray-100">
+               Sign Up
+             </button>
+           </SignUpButton>
+         </>
+       )}
+
+
+       {/* If authenticated, show User Button */}
+       {isAuthenticated && !isLoading && (
+         <UserButton
+           afterSignOutUrl="/"
+           appearance={{
+             elements: {
+               userButtonAvatarBox: "w-8 h-8",
+               userButton: "bg-white text-gray-500 font-bold py-2 px-6 rounded-full hover:bg-gray-100",
+             },
+           }}
+         />
+       )}
+     </div>
+   );
+ }
+
+
+ return (
+   <div className="fixed w-full flex justify-between items-center p-4 backdrop-blur-md bg-white/30 border border-white/20 rounded-lg shadow-lg">
+     {/* Logo on the left */}
+     <div>
+       <img src="/logo.svg" alt="Logo" className="h-12" /> {/* Adjust height if necessary */}
+     </div>
+
+
+     {/* Sign In and Sign Up buttons on the right */}
+     <div className="flex gap-4 items-center">
+       <SignInAndSignUpButtons />
+     </div>
+   </div>
+ );
 };
+
 
 export default Nav;
