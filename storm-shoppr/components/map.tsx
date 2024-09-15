@@ -13,7 +13,7 @@ interface MapProps {
 }
 
 const defaults = {
-    zoom: 4,
+    zoom: 5,
 }
 
 const Map = (Map: MapProps) => {
