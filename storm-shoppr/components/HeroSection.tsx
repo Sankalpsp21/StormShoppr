@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
      {/* Glassmorphism Container */}
      <div className="backdrop-blur-md bg-white/30 border border-white/20 rounded-2xl pt-12 pb-12 w-full md:w-10/12 shadow-lg text-center">       
       <div className="flex justify-center mb-6">
-        <img src="/icon.svg" alt="Icon" className="h-32 w-32" /> {/* Adjust size as needed */}
+        <img src="/icon.svg" alt="Icon" className="h-36 w-36" /> {/* Adjust size as needed */}
       </div>
       <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-4 text-gray-700">
          WELCOME TO <br></br><span className="italic">STORM SHOPPR</span>
