@@ -51,3 +51,22 @@ export async function getUser(ctx: QueryCtx, username: string) {
     .withIndex("username", (q) => q.eq("username", username))
     .unique();
 }
+
+export const addCity = mutation({
+  args: {
+    city: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Called addAddress without authentication present");
+    }
+    const user = await getUser(ctx, identity.nickname!);
+    if (user === null) {
+      throw new Error("User not found");
+    }
+    await ctx.db.patch(user._id, {
+      city: args.city,
+    });
+  },
+});
