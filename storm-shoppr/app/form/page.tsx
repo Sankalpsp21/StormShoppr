@@ -18,7 +18,7 @@ const products: Product[] = [
   { id: 1, name: "Crystal Geyser Natural Alpine Spring Water Bottle (1 gal)", price: 1.99, image: "/images/water.png"},
   { id: 2, name: "Campbell's Canned Soup (Chicken Noodle)", price: 3.50, image: "/images/campbellsoup.jpeg"},
   { id: 3, name: "Jif Peanut Butter", price: 2.89, image: "/images/jif.webp"},
-  { id: 4, name: "Kraft Original Macaroni & Cheese Cups Easy Microwavable Dinner (4 ct)", price: 5.17, image: "/images/jif.webp"},
+  { id: 4, name: "Kraft Original Macaroni & Cheese Cups Easy Microwavable Dinner (4 ct)", price: 5.17, image: "/images/kraft.webp"},
   { id: 5, name: "Nature Valley Crunchy Granola Bars, Oats 'n Honey, 12 Bars (6 Pouches)", price: 4.19, image: "/images/bars.jpg"},
   { id: 6, name: "Duracell Coppertop AA Batteries (20 ct)", price: 17.76, image: "/images/aabattery.jpg"},
   { id: 7, name: "Energizer MAX D Batteries (8-Pack)", price: 14.52, image: "/images/dbattery.png"},
@@ -97,7 +97,7 @@ export default function Home() {
   return (
     <main>
       {/* if first time on dashboard aka just arrived from . hit with address input and ordering options */}
-      <div className="min-h-screen bg-gray-100 py-8">
+      <div className="min-h-screen bg-gray-100 py-8 pt-28">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold text-center mb-8">Checkout</h1>
           <div className="flex flex-col lg:flex-row gap-8">
@@ -106,10 +106,12 @@ export default function Home() {
                 <h2 className="text-xl font-semibold mb-4">Select Items</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {products.map(product => (
-                    <div key={product.id} className="border rounded-lg p-4 flex flex-col items-center">
+                    <div key={product.id} className="border rounded-lg p-4 flex flex-col items-center justify-between">
+                      <div className='flex flex-col items-center'>
                       <img src={product.image} alt={product.name} className="w-24 h-24 object-cover mb-2" />
                       <h3 className="font-semibold">{product.name}</h3>
                       <p className="text-gray-600">${product.price.toFixed(2)}</p>
+                      </div>
                       <div className="flex items-center mt-2">
                         <button
                           onClick={() => updateCart(product.id, false)}
@@ -251,7 +253,7 @@ export default function Home() {
               </form>
             </div>
             <div className="lg:w-1/3">
-              <div className="bg-white rounded-lg shadow-md p-6 sticky top-8">
+              <div className="bg-white rounded-lg shadow-md p-6 sticky top-32">
                 <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
                 <div className="space-y-3">
                   {Object.entries(cart).map(([productId, quantity]) => {

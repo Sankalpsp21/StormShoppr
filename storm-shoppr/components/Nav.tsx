@@ -48,7 +48,9 @@ const Nav = () => {
 
 
  return (
-   <div className="fixed w-full flex justify-between items-center p-4 backdrop-blur-md bg-white/30 border border-white/20 rounded-lg shadow-lg">
+   <div className={`fixed w-full flex justify-between items-center p-4 z-50 bg-white border border-white/20 rounded-lg shadow-lg ${!isAuthenticated || isLoading
+   ? 'backdrop-blur-md bg-white/30'
+   : 'bg-white'}`}>
      {/* Logo on the left */}
      <div>
        <img src="/logo.svg" alt="Logo" className="h-12" /> {/* Adjust height if necessary */}
