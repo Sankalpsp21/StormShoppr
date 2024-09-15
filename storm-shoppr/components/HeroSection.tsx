@@ -1,7 +1,7 @@
 "use client";
 
 
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, SignUpButton, UserButton } from "@clerk/clerk-react";
 import React from "react";
 
 
