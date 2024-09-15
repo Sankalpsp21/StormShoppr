@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
     <div
       className="h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: "url('/background.svg')"
+        backgroundImage: "url('/background.jpg')"
       }}
     >
       {/* Glassmorphism Container */}
