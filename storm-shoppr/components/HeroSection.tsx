@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
       </h1>
 
 
-       <div className="h-1 w-1/4 mx-auto my-8 bg-gray-300 rounded"></div>
+       <div className="h-1 w-1/4 mx-auto my-8 bg-white rounded"></div>
 
 
        <p className="text-lg md:text-2xl mb-6 text-gray-700">
