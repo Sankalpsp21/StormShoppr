@@ -99,30 +99,31 @@ export default function Home() {
       {/* if first time on dashboard aka just arrived from . hit with address input and ordering options */}
       <div className="min-h-screen bg-gray-100 py-8 pt-28">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center mb-8">Checkout</h1>
+          <h1 className="text-3xl font-bold text-center mb-8">Pre-order Supplies</h1>
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-2/3">
               <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 className="text-xl font-semibold mb-4">Select Items</h2>
+                <h2 className="text-xl font-semibold mb-4">Your Recommended Items</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {/* make outline blue if product is > than 0 */}
                   {products.map(product => (
-                    <div key={product.id} className="border rounded-lg p-4 flex flex-col items-center justify-between">
+                    <div key={product.id} className={`border rounded-lg p-4 flex flex-col items-center justify-between ${cart[product.id] > 0 ? 'border-blue-500 border-2 shadow-md shadow-blue-200' : ''}`}>
                       <div className='flex flex-col items-center'>
                       <img src={product.image} alt={product.name} className="w-24 h-24 object-cover mb-2" />
                       <h3 className="font-semibold">{product.name}</h3>
-                      <p className="text-gray-600">${product.price.toFixed(2)}</p>
+                      <p className="text-gray-600 pt-3">${product.price.toFixed(2)}</p>
                       </div>
                       <div className="flex items-center mt-2">
                         <button
                           onClick={() => updateCart(product.id, false)}
-                          className="bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition-colors"
+                          className="bg-gray-200 rounded-full p-1 hover:bg-blue-400 transition-colors"
                         >
                           <div className="mx-2">-</div>
                         </button>
                         <span className="mx-2 w-8 text-center">{cart[product.id] || 0}</span>
                         <button
                           onClick={() => updateCart(product.id, true)}
-                          className="bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition-colors"
+                          className="bg-gray-200 rounded-full p-1 transition-colors hover:bg-blue-400"
                         >
                           <div className="mx-2">+</div>
                         </button>
