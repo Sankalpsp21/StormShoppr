@@ -105,3 +105,11 @@ ul li img {
 .profile img {
   @apply w-20 h-20 rounded-full border-2 border-white;
 }
+
+/* Glassmorphism style for your container */
+.storm-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
