@@ -64,20 +64,24 @@ export default function Home() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    console.log('Cart:', cart)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await addCityMutation({ city: formData.city });
+      
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${formData.city}&appid=e2397ca1f54c8b6df77a59c26c62859a&units=imperial`
+      );
+      const response = await res.json();
+      const lat = Number(response.city.coord.lat);
+      const lon = Number(response.city.coord.lon);
 
-    addCityMutation({ city: formData.city })
-    .then(() => {
-      // Navigate to /dashboard and pass the city as a query parameter
-      router.push(`/dashboard?city=${encodeURIComponent(formData.city)}`);
-    })
-    .catch((error) => {
+      // Navigate to /dashboard with city, lat, and lon as query parameters
+      router.push(`/dashboard?city=${encodeURIComponent(formData.city)}&lat=${lat}&lon=${lon}`);
+    } catch (error) {
       console.error('Error adding city:', error);
-    });
-  }
+    }
+  };
 
   const updateCart = (productId: number, increment: boolean) => {
     setCart(prevCart => {
