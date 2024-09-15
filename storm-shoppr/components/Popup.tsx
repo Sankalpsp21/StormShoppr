@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface PopupProps {
-  message: string;
   isOpen: boolean;
   onClose: () => void;
 }

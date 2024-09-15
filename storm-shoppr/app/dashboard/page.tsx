@@ -64,8 +64,8 @@
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import { useSearchParams } from 'next/navigation';
-import Popup from "/components/Popup.tsx";
-import Bottom from "/components/Bottom.tsx";
+import Popup from "../../components/Popup.tsx";
+import Bottom from "../../components/Bottom.tsx";
 import Link from 'next/link';
 
 export default function Page() {
@@ -95,10 +95,10 @@ export default function Page() {
         <>
             <div className="bg-white-700 mx-auto h-[480px] -z-10">
                 <button
-                    className="translate-y-64 absolute px-4 py-20 bg-blue-500 text-white rounded-lg z-50"
+                    className="m-4 translate-y-96 absolute px-4 py-5 bg-blue-500 text-white rounded-lg z-50"
                     onClick={togglePopup}
                 >
-                    Show Popup
+                    Mock Hurricane
                 </button>
                 <Link href="/form">
                 <button
@@ -113,7 +113,7 @@ export default function Page() {
                 <Map posix={[lat, lon]} />
 
                 <Popup isOpen={isOpen} onClose={togglePopup} />
-                <Bottom />
+                <Bottom isHurricane={isOpen} />
             </div>
         </>
     );
