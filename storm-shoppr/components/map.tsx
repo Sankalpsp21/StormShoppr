@@ -13,7 +13,7 @@ interface MapProps {
 }
 
 const defaults = {
-    zoom: 10,
+    zoom: 4,
 }
 
 const Map = (Map: MapProps) => {
@@ -24,7 +24,8 @@ const Map = (Map: MapProps) => {
             center={posix}
             zoom={zoom}
             scrollWheelZoom={false}
-            style={{ height: "200%", width: "50%" }}
+            style={{ height: "160%", width: "100%", zIndex: 0}}
+            className="translate-y-20"
         >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

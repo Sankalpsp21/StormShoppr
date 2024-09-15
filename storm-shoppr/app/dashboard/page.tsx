@@ -9,10 +9,10 @@
 
 // export default function Dashboard() {
 //   const searchParams = useSearchParams(); // get search params from the URL
-  
+
 //   const [xyCoords, setXYCoords] = useState<[number, number]>([42.3601, -71.0589]); // Default to Boston coordinates
 //   const [zoomLevel, setZoomLevel] = useState<number>(8); // Default zoom level
-  
+
 //   useEffect(() => {
 //     const fetchMapData = async () => {
 //       try {
@@ -31,7 +31,7 @@
 //         console.error('Error fetching map data:', error);
 //       }
 //     };
-  
+
 //     fetchMapData();
 //   }, []); // Runs on initial mount only
 
@@ -48,7 +48,7 @@
 //           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 //           url={"http://b.tile.openstreetmap.org/{z}/{x}/{y}.png"}
 //         />
-        
+
 //         {/* Overlaying a second map */}
 //         <Pane name="precipitation" style={{ zIndex: 400 }}>
 //             <TileLayer
@@ -62,12 +62,15 @@
 // }
 
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from 'next/navigation';
+import Popup from "/components/Popup.tsx";
+import Bottom from "/components/Bottom.tsx";
+import Link from 'next/link';
 
 export default function Page() {
     const searchParams = useSearchParams(); // Get search params from URL
-    
+
     // Get lat and lon from query parameters, or default to specific coordinates
     const lat = Number(searchParams.get('lat')) || 4.79029;
     const lon = Number(searchParams.get('lon')) || -75.69003;
@@ -80,11 +83,37 @@ export default function Page() {
         }
     ), []);
 
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
+
+
     return (
         <>
-            <div className="bg-white-700 mx-auto my-5 w-[98%] h-[480px]">
+            <div className="bg-white-700 mx-auto h-[480px] -z-10">
+                <button
+                    className="translate-y-64 absolute px-4 py-20 bg-blue-500 text-white rounded-lg z-50"
+                    onClick={togglePopup}
+                >
+                    Show Popup
+                </button>
+                <Link href="/form">
+                <button
+                    className="translate-y-24 translate-x-14 absolute px-4 py-2 bg-orange-500 text-white rounded-lg z-50"
+                    
+                >
+                    Your Order List
+                </button>
+                </Link>
+
                 {/* Pass dynamic lat/lon as props to the Map component */}
                 <Map posix={[lat, lon]} />
+
+                <Popup isOpen={isOpen} onClose={togglePopup} />
+                <Bottom />
             </div>
         </>
     );
