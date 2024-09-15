@@ -52,9 +52,11 @@ const Nav = () => {
       }`}
     >
       {/* Logo on the left */}
-      <div>
-        <img src="/logo.svg" alt="Logo" className="h-12" /> {/* Adjust height if necessary */}
-      </div>
+      <a href="/">
+        <div>
+          <img src="/logo.svg" alt="Logo" className="h-12" /> {/* Adjust height if necessary */}
+        </div>
+      </a>
 
       {/* Sign In and Sign Up buttons on the right */}
       <div className="flex gap-4 items-center">
