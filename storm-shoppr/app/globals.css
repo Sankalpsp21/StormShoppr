@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-image: url('/background.svg');
+  background-image: url('/background.jpg');
   background-size: cover; /* Ensures the image covers the entire background */
   background-repeat: no-repeat; /* Prevents the image from repeating */
 }

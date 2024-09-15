@@ -13,7 +13,7 @@ interface MapProps {
 }
 
 const defaults = {
-    zoom: 4,
+    zoom: 5,
 }
 
 const Map = (Map: MapProps) => {
@@ -23,7 +23,7 @@ const Map = (Map: MapProps) => {
         <MapContainer
             center={posix}
             zoom={zoom}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true}
             style={{ height: "160%", width: "100%", zIndex: 0}}
             className="translate-y-20"
         >
