@@ -64,8 +64,8 @@
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import { useSearchParams } from 'next/navigation';
-import Popup from "../../components/Popup.tsx";
-import Bottom from "../../components/Bottom.tsx";
+import Popup from "../../components/Popup";
+import Bottom from "../../components/Bottom";
 import Link from 'next/link';
 import { Item } from "../../components/Popup";
 
