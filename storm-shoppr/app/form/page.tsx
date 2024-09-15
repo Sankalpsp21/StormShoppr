@@ -70,13 +70,13 @@ export default function Home() {
     console.log('Cart:', cart)
 
     addCityMutation({ city: formData.city })
-      .then(() => {
-        // Navigate to /dashboard after successful mutation
-        router.push('/dashboard');
-      })
-      .catch((error) => {
-        console.error('Error adding city:', error);
-      });
+    .then(() => {
+      // Navigate to /dashboard and pass the city as a query parameter
+      router.push(`/dashboard?city=${encodeURIComponent(formData.city)}`);
+    })
+    .catch((error) => {
+      console.error('Error adding city:', error);
+    });
   }
 
   const updateCart = (productId: number, increment: boolean) => {
