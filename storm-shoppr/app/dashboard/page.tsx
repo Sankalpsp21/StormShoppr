@@ -40,12 +40,12 @@ export default function Page() {
 
     return (
             <div className="bg-white-700 mx-auto h-[480px] -z-10">
-                <button
-                    className="m-4 translate-y-96 absolute px-4 py-5 bg-blue-500 text-white rounded-lg z-50"
-                    onClick={togglePopup}
-                >
-                    Mock Hurricane
-                </button>
+            <img
+                src="mockhurricane.svg"  // Replace with the actual image path
+                alt="Mock Hurricane"
+                className="m-4 translate-y-96 absolute z-50 rounded-lg w-32 h-32"  // Adjust the w- and h- values to control size
+                onClick={togglePopup}
+            />
                 <Link href="/form">
                 <button
                     className="translate-y-24 translate-x-14 absolute px-4 py-2 bg-orange-500 text-white rounded-lg z-50"

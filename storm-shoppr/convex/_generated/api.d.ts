@@ -14,6 +14,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as createDoorDashDelivery from "../createDoorDashDelivery.js";
 import type * as map from "../map.js";
 import type * as users from "../users.js";
 
@@ -26,6 +27,7 @@ import type * as users from "../users.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  createDoorDashDelivery: typeof createDoorDashDelivery;
   map: typeof map;
   users: typeof users;
 }>;
